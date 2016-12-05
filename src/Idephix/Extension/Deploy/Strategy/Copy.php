@@ -84,7 +84,7 @@ class Copy implements DeployStrategyInterface
         $sshCmd.= $this->sshClient->getPort() ? " -p ".$this->sshClient->getPort() : "";
         $sshCmd.= "'";
 
-        return $this->idx->local("rsync -rlpDvcz --delete $sshCmd $dryFlag $exclude $include $from $user@$host:$to");
+        return $this->idx->local("rsync -rlpDvcz --delete $sshCmd $dryFlag $include $exclude $from $user@$host:$to");
     }
 
     /**
